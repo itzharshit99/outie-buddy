@@ -70,7 +70,22 @@ Follow these steps to get the project running locally:
 - MongoDB Atlas account (or local MongoDB instance)
 - A mail service (e.g., Gmail) for Nodemailer
 
-### Steps
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/outpass-management-system.git
+### Screenshots
+![Screenshot 2025-03-18 131711](https://github.com/user-attachments/assets/860e546e-a9af-4234-9dac-8f931c14cfc0)
+
+
+![Screenshot 2025-03-18 131636](https://github.com/user-attachments/assets/a03d4d2d-7afe-4579-a2d3-084ab3679e28)
+
+
+![Screenshot 2025-03-18 131647](https://github.com/user-attachments/assets/b882a52b-c758-4517-bbad-29660ca20726)
+
+
+![Screenshot 2025-03-18 131657](https://github.com/user-attachments/assets/72cbc473-484c-4bad-8eb4-5e6995ec9a61)
+
+
+![Screenshot 2025-03-18 131732](https://github.com/user-attachments/assets/46e61293-87c8-491d-a9f5-d8744c5cb6f5)
+
+
+
+![Screenshot 2025-03-18 131745](https://github.com/user-attachments/assets/1f5b2572-8ab3-49f1-bdd5-d9e364afbf73)
+
