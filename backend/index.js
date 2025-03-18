@@ -5,6 +5,8 @@ import cors from 'cors';
 import homeRouter from './routes/home.route.js';
 import outingRouter from './routes/outing.route.js';
 import adminRouter from './routes/admin.route.js';
+import path from 'path'
+
 // app config
 const app = express();
 const port = process.env.PORT || 4000;
