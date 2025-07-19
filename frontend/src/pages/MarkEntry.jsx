@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const MarkEntry = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const [activeTab, setActiveTab] = useState("home");
   const [homeData, setHomeData] = useState([]);
   const [outingData, setOutingData] = useState([]);
@@ -11,10 +13,10 @@ const MarkEntry = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const homeResponse = await axios.get("http://localhost:4000/api/user/get-home-details");
+        const homeResponse = await axios.get(`${backendUrl}api/user/get-home-details`);
         setHomeData(homeResponse.data);
 
-        const outingResponse = await axios.get("http://localhost:4000/api/user/get-outing-details");
+        const outingResponse = await axios.get(`${backendUrl}api/user/get-outing-details`);
         setOutingData(outingResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -29,8 +31,8 @@ const MarkEntry = () => {
   const handleMarkEntered = async (id, type) => {
     try {
       const endpoint = type === "home" 
-        ? `http://localhost:4000/api/user/mark-home-entered/${id}` 
-        : `http://localhost:4000/api/user/mark-outing-entered/${id}`;
+        ? `${backendUrl}api/user/mark-home-entered/${id}` 
+        : `${backendUrl}api/user/mark-outing-entered/${id}`;
 
       await axios.put(endpoint, { isEntered: true });
 

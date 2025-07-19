@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify'; // Import react-toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast styles
 
 const AdminForm = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -26,7 +28,7 @@ const AdminForm = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:4000/api/admin/admin-details', formData);
+      const response = await axios.post(`${backendUrl}api/admin/admin-details`, formData);
       // Success Toast
       toast.success(response.data.message, {
         position: 'top-right',

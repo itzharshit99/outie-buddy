@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const AddStudent = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   // State to manage form data
   const [formData, setFormData] = useState({
     name: "",
@@ -47,7 +49,7 @@ const AddStudent = () => {
     try {
       // Send POST request to the backend API
       const response = await axios.post(
-        "http://localhost:4000/api/admin/add-student-details",
+        `${backendUrl}/api/admin/add-student-details`,
         formData
       );
 

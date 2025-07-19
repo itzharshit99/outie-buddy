@@ -8,6 +8,8 @@ import { Pie, Bar } from 'react-chartjs-2';
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const DetailsPage = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const [activeTab, setActiveTab] = useState("home"); // State to manage active tab
   const [homeData, setHomeData] = useState([]); // State for home details
   const [outingData, setOutingData] = useState([]); // State for outing details
@@ -20,11 +22,11 @@ const DetailsPage = () => {
     const fetchData = async () => {
       try {
         // Fetch home details
-        const homeResponse = await axios.get("http://localhost:4000/api/user/get-home-details");
+        const homeResponse = await axios.get(`${backendUrl}api/user/get-home-details`);
         setHomeData(homeResponse.data);
 
         // Fetch outing details
-        const outingResponse = await axios.get("http://localhost:4000/api/user/get-outing-details");
+        const outingResponse = await axios.get(`${backendUrl}api/user/get-outing-details`);
         setOutingData(outingResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -41,8 +43,8 @@ const DetailsPage = () => {
     try {
       const endpoint =
         type === "home"
-          ? `http://localhost:4000/api/user/mark-home-entered/${id}`
-          : `http://localhost:4000/api/user/mark-outing-entered/${id}`;
+          ? `${backendUrl}api/user/mark-home-entered/${id}`
+          : `${backendUrl}api/user/mark-outing-entered/${id}`;
 
       await axios.put(endpoint, { isEntered: true });
 

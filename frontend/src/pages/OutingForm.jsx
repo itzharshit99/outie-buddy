@@ -8,6 +8,8 @@ import { ToastContainer, toast } from 'react-toastify'; // Import react-toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast styles
 
 const OutingForm = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -30,7 +32,7 @@ const OutingForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await axios.post('http://localhost:4000/api/user/outing-details', {
+      const response = await axios.post(`${backendUrl}api/user/outing-details`, {
         ...formData,
         goingTime: formData.goingTime ? formData.goingTime.toISOString() : null, // Handle null case
       });

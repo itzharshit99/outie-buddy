@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify'; // Import react-toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast styles
 
 const HomeForm = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -26,7 +28,7 @@ const HomeForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await axios.post('http://localhost:4000/api/user/home-details', formData);
+      const response = await axios.post(`${backendUrl}api/user/home-details`, formData);
       // Success Toast
       toast.success(response.data.message, {
         position: "top-right",
