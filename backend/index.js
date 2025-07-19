@@ -15,7 +15,7 @@ connectDB();
 // Middlewares
 app.use(express.json());
 app.use(cors({
-  origin: '*',
+  origin: ["https://outie-buddy-rxgr.vercel.app/", "http://localhost:5173"],
   methods: ['GET','POST','PUT','DELETE'],
   credentials: true
 }));
@@ -30,6 +30,8 @@ app.use('/api/user',homeRouter)
 app.use("/api/user",outingRouter)
 app.use("/api/admin",adminRouter)
 
-app.listen(port, () => {
-  console.log("Server is running on:", port);
-});
+// app.listen(port, () => {
+//   console.log("Server is running on:", port);
+// });
+
+export default app;
