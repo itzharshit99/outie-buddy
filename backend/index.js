@@ -15,7 +15,7 @@ connectDB();
 // Middlewares
 app.use(express.json());
 app.use(cors({
-  origin: ["https://outie-buddy-rxgr.vercel.app/", "http://localhost:5173"],
+  origin: ["https://outie-buddy-rxgr.vercel.app", "http://localhost:5173"],
   methods: ['GET','POST','PUT','DELETE'],
   credentials: true
 }));
